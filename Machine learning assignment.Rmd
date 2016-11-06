@@ -1,7 +1,6 @@
 Machine learning assignment  
 
 Executive summary 
-=================
 This report is  about predicting human activities, say a forearm curl. We intend to build a model to predict which session could be classified as good and labeled A or not then B,C,D,or E, in the variable classe with five levels (A,B,C,D,E).
 We have built a support vector machine, and then assess the model accuracy while tuning cross parameter.
 ---  
