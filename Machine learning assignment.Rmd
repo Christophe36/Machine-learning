@@ -3,7 +3,7 @@ Machine learning assignment
 Executive summary 
 =================
 This report is  about predicting human activities, say a forearm curl. We intend to build a model to predict which session could be classified as good and labeled A or not then B,C,D,or E, in the variable classe with five levels (A,B,C,D,E).
-We have abuilt a support vector machine, and then assess the model accuracy while tuning cross parameter.
+We have built a support vector machine, and then assess the model accuracy while tuning cross parameter.
 ---  
 downloading data
 ``` 
@@ -12,14 +12,10 @@ training.csv = download.file("https://d396qusza40orc.cloudfront.net/predmachlear
 testing.csv = download.file("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv",
                             destfile = "D:/R/Data/Machine learning/testing.csv")
 ```
+Import data
 ```{r}
 train = read.csv("D:/R/Data/Machine learning/training.csv")
 test = read.csv("D:/R/Data/Machine learning/testing.csv")
-acc_var = grep("^acc",names(train))
-gyro_var = grep("^gyros",names(train))
-train= train[,c(acc_var,gyro_var,160)]
-test =  test[,c(acc_var,gyro_var,160)]
-rm(acc_var,gyro_var)
 ```
 Including library
 
@@ -30,12 +26,9 @@ library(e1071)
 features selection  :  
 ------------------    
 Here we have selected acceleration and gyration because these features 
-quantify kinematics of a given motion. 
+quantify well kinematics of a given motion. 
 
 ``` {r, echo = FALSE}
-
-train = read.csv("D:/R/Data/Machine learning/training.csv")
-test = read.csv("D:/R/Data/Machine learning/testing.csv")
 Var = grep("^acc|^gyro",names(train))
 train = train[,c(Var,160)]
 test = test[,c(Var,160)]
