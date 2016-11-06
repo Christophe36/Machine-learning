@@ -23,8 +23,7 @@ Including library
 
 library(e1071)
 ```
-features selection  :  
-------------------    
+features selection  :    
 Here we have selected acceleration and gyration because these features 
 quantify well kinematics of a given motion. 
 
@@ -34,7 +33,6 @@ train = train[,c(Var,160)]
 test = test[,c(Var,160)]
 ```
 Building model :      
--------------   
 We have built our model, from the default settings. Then we tune it step by step. we've first fixed gamma and used a sequence of k-folds ranging from 1 to to 10. There was a slice improvement in the total accuracy. However, when holding, k fixed to 5 and varying gamma, from default to .1, total accuracy improved from 83 % to 93 .4 %. However, one may prefer to use tune function or best.tune over svm model object to achieve this purpose.  
 
 ```{r}
